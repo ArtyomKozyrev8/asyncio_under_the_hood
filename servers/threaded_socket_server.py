@@ -24,7 +24,7 @@ def serve_forever(ip: str, port: int) -> None:
             print(f"Running on {ip}:{port}")
             s.listen(5)
             while True:
-                conn, addr = s.accept() # get connection
+                conn, addr = s.accept()  # get connection
                 print(f"Established connection with {addr[0]}:{addr[1]}")
                 # move all response logic to another thread and keep waiting for new connections
                 Thread(target=on_accept,  args=(conn, p, )).start()
